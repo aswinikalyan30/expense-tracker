@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Form from "./components/Form";
+import { useState } from "react";
 
 function App() {
+  const [balance, setBalance] = useState(0);
+  const [showForm, setShowForm] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <div id="balance">
+        <h3>Available Balance</h3>
+        <span>{balance}</span>
+        <button onClick={() => setShowForm(!showForm)}>{showForm ? 'cancel' : 'new record'}</button>
+      </div>
+      {
+        showForm ? <Form setBalance={setBalance} /> : null
+      }
+    </main>
   );
 }
 
