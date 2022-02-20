@@ -1,0 +1,32 @@
+{
+    "income": [
+        "salary",
+        "rent allowance",
+        "side hustle",
+        "reselling",
+        "business",
+        "freelancing",
+        "interest",
+        "others"
+    ],
+    "expenses": [
+        "groceries",
+        "internet bills",
+        "rent",
+        "food",
+        "installments",
+        "furniture",
+        "others"
+    ],
+    "investments": [
+        "stock market",
+        "fixed deposits",
+        "provident fund",
+        "bonds",
+        "mutual funds",
+        "crypto",
+        "NFTs",
+        "real estate",
+        "others"
+    ]
+}
