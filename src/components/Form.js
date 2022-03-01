@@ -50,6 +50,9 @@ const Form = (props) => {
         <input type="number" placeholder="What's the amount?" {...register("amount", { required: true, valueAsNumber: true, })} />
         {errors.amount && <span>What's the amount?</span>}
 
+        <input type="date" {...register("date", { required: true})} />
+        {errors.date && <span>Did you enter the date?</span>}
+
         <textarea placeholder="Add some comments" {...register("description")}></textarea>
 
         <input type="submit" value="Add"></input>

@@ -9,7 +9,7 @@ import Form from "./components/Form";
 import SideDisplay from "./components/SideDisplay";
 
 //importing libraries here
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 //importing json file consisting of the income or expense categories
 const categoriesData = require("./categories.json");
@@ -19,12 +19,10 @@ function App() {
   const [balance, setBalance] = useState(0);
   const [showForm, setShowForm] = useState(true);
   const [records, setRecords] = useState([]);
-  const [recentIncomes, setRecentIncomes] = useState([])
-  const [recentExpenses, setRecentExpenses] = useState([])
 
   const addRecord = (data) => {
     setRecords(() => {
-      records.push(data);
+      records.unshift(data);
       return records;
     });
     if (data.recordType === "income") {
@@ -32,7 +30,6 @@ function App() {
     } else {
       setBalance(balance - data.amount);
     }
-    
   };
 
   return (
@@ -40,7 +37,11 @@ function App() {
       <main>
         <h3>Available Balance</h3>
         <span>{balance}</span>
-        <Reports recentIncomes={recentIncomes} recentExpenses={recentExpenses} />
+        {records.length === 0 ? (
+          <p>no recent records</p>
+        ) : (
+          <Recents records={records} />
+        )}
       </main>
       <div id="side-panel">
         {showForm ? (
@@ -57,49 +58,42 @@ function App() {
   );
 }
 
-const Reports = (props) => {
-  const { recentIncomes, recentExpenses } = props;
-  /*  const { records } = props
-  let index = 0;
-  const incomeList = []
-  const expenseList = []
-  
-  while(index < records.length && index < 5) {
-    const element = records[index]
-    
-    if(element.recordType === 'income') {
-      incomeList.push(
-        <li>
-          <div className="record-info income">
-            <h3>{element.category}</h3>
-            <span>19.02.2022</span>
-          </div>
-          <span className="record-amount">{element.amount}</span>
-        </li>
-      )
+const Recents = (props) => {
+  const { records } = props;
+  const recentIncomes = [];
+  const recentExpenses = [];
+
+  for (let i = 0; i < 3 && i < records.length; i++) {
+    if (records[i].recordType === "income") {
+      recentIncomes.unshift(records[i]);
     } else {
-      expenseList.push(
-        <li>
-          <div className="record-info expense">
-            <h3>{element.category}</h3>
-            <span>19.02.2022</span>
-          </div>
-          <span className="record-amount">{element.amount}</span>
-        </li>
-      )
+      recentExpenses.unshift(records[i]);
     }
-    index = index + 1;
-  } */
+  }
+
   return (
     <div>
-      <h1>Reports</h1>
       <div id="recent-incomes">
-        <h3>Most recent incomes</h3>
-        <ul>{recentIncomes}</ul>
+        <p>Recent Incomes</p>
+        <ul>
+          {recentIncomes.map((record) => (
+            <li key={record.date}>
+              <span>{record.category}</span>
+              <span>{record.amount}</span>
+            </li>
+          ))}
+        </ul>
       </div>
       <div id="recent-expenses">
-        <h3>Most recent expenses</h3>
-        <ul>{recentExpenses}</ul>
+        <p>Recent Expenses</p>
+        <ul>
+          {recentExpenses.map((record) => (
+            <li key={record.date}>
+              <span>{record.category}</span>
+              <span>{record.amount}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
