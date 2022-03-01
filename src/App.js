@@ -17,7 +17,7 @@ const categoriesData = require("./categories.json");
 function App() {
   //state variables
   const [balance, setBalance] = useState(0);
-  const [showForm, setShowForm] = useState(true);
+  const [showForm, setShowForm] = useState(false);
   const [records, setRecords] = useState([]);
 
   const addRecord = (data) => {
