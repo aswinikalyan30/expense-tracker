@@ -1,0 +1,39 @@
+@import "./Colors.scss";
+main {
+  padding: 0.5rem 2rem;
+  h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    span {
+      font-weight: 500;
+    }
+    width: 100%;
+  }
+
+  #basic-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+
+    #balance-text {
+      color: $primary-grey;
+    }
+    #balance-amount {
+      font-size: 4rem;
+      font-weight: 600;
+      #currency {
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 700;
+        color: $primary-green;
+      }
+      margin: 10px 0 0;
+    }
+    p {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  }
+}
