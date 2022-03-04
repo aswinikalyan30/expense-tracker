@@ -2,12 +2,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
 import React from "react";
-//importing the different components and App.scss stylesheet
 
+//importing the different components and App.scss stylesheet
 import "./App.scss";
 import Form from "./components/Form";
 import SideDisplay from "./components/SideDisplay";
 import Basic from "./components/Basic";
+import Overview from "./components/Overview";
 
 //importing libraries here
 import { useState, useRef } from "react";
@@ -40,7 +41,10 @@ function App() {
 
   return (
     <div id="container">
-      <Basic balance={balance} />
+      <main>
+        <Basic balance={balance} />
+        <Overview />
+      </main>
       <div id="side-panel">
         {showForm ? (
           <Form

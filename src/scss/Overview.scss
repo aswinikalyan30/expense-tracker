@@ -1,0 +1,15 @@
+@import './Colors.scss';
+
+#overview {
+    h3 {
+        font-weight: 400;
+        font-size: 0.9rem;
+        color: $primary-red;
+    }
+
+    #expenses-list {
+        ul {
+            list-style-type: none;
+        }
+    }
+}

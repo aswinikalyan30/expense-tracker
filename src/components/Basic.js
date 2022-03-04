@@ -6,7 +6,7 @@ import "./../scss/Basic.scss";
 const Basic = (props) => {
   const { balance } = props;
   return (
-    <main>
+    <section id="main">
       <h3>
         Hello <span id="user-name">Basically</span>
       </h3>
@@ -21,7 +21,7 @@ const Basic = (props) => {
           That's 30% more since last week.
         </p>
       </section>
-    </main>
+    </section>
   );
 };
 
