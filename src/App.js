@@ -18,10 +18,11 @@ const categoriesData = require("./categories.json");
 
 function App() {
   //state variables
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState(12000);
   const [showForm, setShowForm] = useState(false);
   const [incomes, setIncomes] = useState([]);
   const [expenses, setExpenses] = useState([]);
+  const currency = String.fromCharCode(8377)
 
   const addRecord = (data) => {
     if (data.recordType === "income") {
@@ -42,8 +43,8 @@ function App() {
   return (
     <div id="container">
       <main>
-        <Basic balance={balance} />
-        <Overview />
+        <Basic balance={balance} currency={currency} />
+        <Overview currency={currency} expenses={expenses} incomes={incomes} />
       </main>
       <div id="side-panel">
         {showForm ? (

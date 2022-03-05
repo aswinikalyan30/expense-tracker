@@ -4,7 +4,7 @@ import React from "react";
 import "./../scss/Basic.scss";
 
 const Basic = (props) => {
-  const { balance } = props;
+  const { balance, currency } = props;
   return (
     <section id="main">
       <h3>
@@ -17,7 +17,7 @@ const Basic = (props) => {
           <span id="currency">INR</span>
         </span>
         <p id="extra-text">
-          You've spent {String.fromCharCode(8377)}520 this week.
+          You've spent {currency}520 this week.
           That's 30% more since last week.
         </p>
       </section>
