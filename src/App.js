@@ -19,7 +19,7 @@ const categoriesData = require("./categories.json");
 function App() {
   //state variables
   const [balance, setBalance] = useState(12000);
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(true);
   const [incomes, setIncomes] = useState([]);
   const [expenses, setExpenses] = useState([]);
   const currency = String.fromCharCode(8377)
@@ -27,16 +27,8 @@ function App() {
   const addRecord = (data) => {
     if (data.recordType === "income") {
       setBalance(balance + data.amount);
-      setIncomes(() => {
-        incomes.unshift(data);
-        return incomes;
-      });
     } else {
       setBalance(balance - data.amount);
-      setExpenses(() => {
-        expenses.unshift(data);
-        return expenses;
-      });
     }
   };
 
