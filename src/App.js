@@ -6,7 +6,7 @@ import React from "react";
 //importing the different components and App.scss stylesheet
 import "./App.scss";
 import Form from "./components/Form";
-import SideDisplay from "./components/SideDisplay";
+import Navigation from "./components/Navigation";
 import Basic from "./components/Basic";
 import Overview from "./components/Overview";
 
@@ -41,15 +41,15 @@ function App() {
         <Overview currency={currency} expenses={expenses} incomes={incomes} />
       </main>
       <div id="side-panel">
-        {showForm ? (
+        {/* {showForm ? (
           <Form
             setShowForm={setShowForm}
             categoriesData={categoriesData}
             addRecord={addRecord}
           />
         ) : (
-          <SideDisplay setShowForm={setShowForm} />
-        )}
+          <Navigation setShowForm={setShowForm} />
+        )} */}
       </div>
     </div>
   );

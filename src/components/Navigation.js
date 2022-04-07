@@ -2,9 +2,9 @@
 /* eslint-disable react/prop-types */
 //This component is shows the current day and time and the button to show or hide the add-record-form
 import React from "react"
-import './../scss/SideDisplay.scss'
+import './../scss/Navigation.scss'
 
-const SideDisplay = (props) => {
+const Navigation = (props) => {
     const { setShowForm } = props
     return(
         <div id="side-display">
@@ -15,4 +15,4 @@ const SideDisplay = (props) => {
     )
 }
 
-export default SideDisplay
+export default Navigation;
