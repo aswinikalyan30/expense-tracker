@@ -28,8 +28,9 @@
 
             .category-title {
                 font-weight: 500;
+                text-transform: capitalize;
             }
-            .date {
+            .category-date {
                 font-size: 0.8rem;
                 color: $primary-grey;
             }
