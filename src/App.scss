@@ -1,19 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
 @import './scss/Colors.scss';
 
-#container {
+.container {
     font-family: Inter;
     display: flex;
     flex-direction: row;
-
-    main {
-        width: 75%;
-        padding: 0.5rem 2rem;
-    }
-
-    #side-panel{
-        width: 25%;
-        height: 100vh;
-        background-color: $primary-blue;
-    }
 }

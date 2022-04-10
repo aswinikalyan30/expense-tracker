@@ -1,17 +1,22 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
+
 import React from "react";
+import { Routes, Route } from 'react-router-dom';
 
-//importing the different components and App.scss stylesheet
+//importing different stylesheets
 import "./App.scss";
-import Form from "./components/Form";
-import Navigation from "./components/Navigation";
-import Basic from "./components/Basic";
-import Overview from "./components/Overview";
+import './../src/scss/Theme.scss';
 
-//importing libraries here
-import { useState, useRef } from "react";
+//importing different components
+import Form from "./components/Form";
+import Dashboard from "./components/Dashboard";
+import Navigation from "./components/Navigation";
+import UserSettings from "./components/UserSettings";
+
+//importing hooks
+import { useState } from "react";
 
 //importing json file consisting of the income or expense categories
 const categoriesData = require("./categories.json");
@@ -22,6 +27,7 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const [incomes, setIncomes] = useState([]);
   const [expenses, setExpenses] = useState([]);
+  const [theme, setTheme] = useState('light');
   const currency = String.fromCharCode(8377)
 
   const addRecord = (data) => {
@@ -33,24 +39,31 @@ function App() {
       setExpenses([data, ...expenses]);
     }
   };
+  const handleThemeChange = () => {
+    if(theme === 'light') {
+        setTheme('dark')
+    } else {
+        setTheme('light')
+    }
+}
 
   return (
-    <div id="container">
-      <main>
-        <Basic balance={balance} currency={currency} />
-        <Overview currency={currency} expenses={expenses} incomes={incomes} />
-      </main>
-      <div id="side-panel">
-        {/* {showForm ? (
-          <Form
-            setShowForm={setShowForm}
-            categoriesData={categoriesData}
-            addRecord={addRecord}
-          />
-        ) : (
-          <Navigation setShowForm={setShowForm} />
-        )} */}
-      </div>
+    <div className="container">
+      <Routes>
+        <Route path="settings" element={<UserSettings theme={theme} />} />
+        <Route
+          path="/"
+          element={
+            <Dashboard
+              balance={balance}
+              currency={currency}
+              expenses={expenses}
+              incomes={incomes}
+              theme={theme}
+        />
+        } />
+      </Routes>
+      <Navigation theme={theme} handleThemeChange={handleThemeChange} />
     </div>
   );
 }

@@ -1,0 +1,14 @@
+@import 'Colors';
+.light {
+    background-color: white;
+    button, .nav-links {
+        color: black;
+    }
+}
+.dark {
+    background-color: $dark-blue;
+    color: white ;
+    button, .nav-links {
+        color: white;
+    }
+}

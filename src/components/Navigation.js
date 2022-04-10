@@ -1,18 +1,49 @@
-/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-//This component is shows the current day and time and the button to show or hide the add-record-form
-import React from "react"
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+//importing stylesheets
+import './../scss/Theme.scss';
 import './../scss/Navigation.scss'
 
+//importing icons from react-icons
+import {
+    IoSunnyOutline,
+    IoMoon,
+    IoExitOutline,
+    IoExit,
+    IoSettingsOutline,
+    IoSettings,
+    IoCreateOutline,
+    IoCreate,
+    IoPieChartOutline,
+    IoPieChart,
+} from "react-icons/io5";
+
 const Navigation = (props) => {
-    const { setShowForm } = props
-    return(
-        <div id="side-display">
-            <h1>It's your Money<br /> Own it.</h1>
-            <p>Manage all your expenses in one place with Expensify.</p>
-            <button onClick={() => setShowForm(true)}>add record</button>
-        </div>
-    )
-}
+    const {theme, handleThemeChange} = props;
+    return (
+      <div className={`navigation ${theme}`}>
+        <nav>
+          <Link className='nav-links' to="/">
+            {theme === 'light' ? <IoPieChartOutline/> : <IoPieChart/>}
+          </Link>
+          <button>
+            {theme === 'light' ? <IoCreateOutline/> : <IoCreate/>}
+          </button>
+          <Link className='nav-links' to='settings'>
+            {theme === 'light' ? <IoSettingsOutline/> : <IoSettings/>}
+          </Link>
+          <button>
+              {theme === 'light' ? <IoExitOutline/> : <IoExit/>}
+          </button>
+          <button onClick={() => handleThemeChange()}>
+            {theme === 'light' ? <IoSunnyOutline/> : <IoMoon/>}
+          </button>
+        </nav>
+      </div>
+    );
+  };
 
 export default Navigation;
