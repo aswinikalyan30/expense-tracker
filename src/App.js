@@ -7,7 +7,6 @@ import { Routes, Route } from 'react-router-dom';
 
 //importing different stylesheets
 import "./App.scss";
-import './../src/scss/Theme.scss';
 
 //importing different components
 import Form from "./components/Form";

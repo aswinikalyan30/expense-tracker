@@ -1,4 +1,22 @@
-@import 'Colors';
+$primary-blue: #173C70;
+$primary-white: #FFFFFF;
+$primary-green: #5EC2B7;
+$primary-grey: #838383;
+$primary-red: #F38D68;
+$secondary-grey: #E5E5E5;
+$dark-blue: #001d3d;
+
+
+//paddings and margins 
+$component-padding: 0.5rem 2rem;
+$component-width: 95vw;
+$navigation-width: 5vw;
+$default-fs: 1rem;
+$fs-m: 1.25rem;
+$fs-l: 1.5rem;
+
+//class styling for light and dark mode
+
 .light {
     background-color: white;
     button, .nav-links {

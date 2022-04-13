@@ -1,5 +1,5 @@
-@import "Colors";
+@import "Theme";
 main {
-    width: 95vw;
+    width: $component-width;
     padding: $component-padding;
 }
