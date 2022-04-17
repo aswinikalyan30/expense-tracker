@@ -3,7 +3,7 @@
 /* eslint-disable no-undef */
 
 import React from "react";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 
 //importing different stylesheets
 import "./App.scss";
@@ -26,8 +26,8 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const [incomes, setIncomes] = useState([]);
   const [expenses, setExpenses] = useState([]);
-  const [theme, setTheme] = useState('light');
-  const currency = String.fromCharCode(8377)
+  const [theme, setTheme] = useState("light");
+  const currency = String.fromCharCode(8377);
 
   const addRecord = (data) => {
     if (data.recordType === "income") {
@@ -39,12 +39,12 @@ function App() {
     }
   };
   const handleThemeChange = () => {
-    if(theme === 'light') {
-        setTheme('dark')
+    if (theme === "light") {
+      setTheme("dark");
     } else {
-        setTheme('light')
+      setTheme("light");
     }
-}
+  };
 
   return (
     <div className="container">
@@ -59,10 +59,29 @@ function App() {
               expenses={expenses}
               incomes={incomes}
               theme={theme}
+            />
+          }
         />
-        } />
       </Routes>
-      <Navigation theme={theme} handleThemeChange={handleThemeChange} />
+      {/* <Navigation
+        theme={theme}
+        handleThemeChange={handleThemeChange}
+        showForm={showForm}
+        setShowForm={setShowForm}
+      /> */}
+      {showForm ? (
+        <Form 
+          showForm={showForm} 
+          setShowForm={setShowForm}
+          addRecord={addRecord} />
+      ) : (
+        <Navigation
+          theme={theme}
+          handleThemeChange={handleThemeChange}
+          showForm={showForm}
+          setShowForm={setShowForm}
+        />
+      )}
     </div>
   );
 }

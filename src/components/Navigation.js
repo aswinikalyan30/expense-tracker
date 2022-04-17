@@ -21,7 +21,7 @@ import {
 } from "react-icons/io5";
 
 const Navigation = (props) => {
-  const { theme, handleThemeChange } = props;
+  const { theme, handleThemeChange, showForm, setShowForm } = props;
   return (
     <div className={`navigation ${theme}`}>
       <nav>
@@ -46,7 +46,7 @@ const Navigation = (props) => {
           </NavLink>
         </li>
         <li className="nav-items">
-          <button>
+          <button onClick={() => setShowForm(true)}>
             {theme === "light" ? <IoCreateOutline /> : <IoCreate />}
           </button>
         </li>

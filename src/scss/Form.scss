@@ -4,8 +4,13 @@
     height: 100%;
     background-repeat: no-repeat;
     background-position:bottom;
+    z-index: 1;
+    position: fixed;
+    right: 0;
+    overflow: hidden;
 
     form {
+        position: relative;
         display: flex;
         flex-direction: column;
         padding: 1.5rem 2rem;
