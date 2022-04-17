@@ -19,8 +19,9 @@ $fs-l: 1.5rem;
 
 .light {
     background-color: white;
+    color: $dark-blue;
     button, .nav-links {
-        color: black;
+        color: $dark-blue;
     }
 }
 .dark {
