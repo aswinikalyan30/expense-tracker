@@ -21,7 +21,7 @@ import {
 } from "react-icons/io5";
 
 const Navigation = (props) => {
-  const { theme, handleThemeChange, showForm, setShowForm } = props;
+  const { theme, handleThemeChange, setShowForm } = props;
   return (
     <div className={`navigation ${theme}`}>
       <nav>

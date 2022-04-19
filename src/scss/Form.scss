@@ -1,36 +1,42 @@
 @import "Theme";
 #form-div {
-    background: url('./../assets/Finance-illustration.png');
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position:bottom;
-    z-index: 1;
-    position: fixed;
-    right: 0;
-    overflow: hidden;
+  background: url("./../assets/Finance-illustration.png"), $primary-green;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: 1;
+  position: fixed;
+  right: 0;
+  overflow: hidden;
 
-    form {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        padding: 1.5rem 2rem;
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2rem;
 
-        input, select, textarea, button {
-            margin-bottom: 1rem;
-            height: 40px;
-            border-radius: 5px;
-            border: none;
-        }
-        button {
-            background-color: $primary-green;
-            text-transform: capitalize;
-            color: $primary-white;
-            font-size: 0.9rem;
-        }
-        label {
-            color: $primary-white;
-            font-size: 0.9rem;
-            padding-bottom: 10px;
-        }
+    input,
+    select,
+    textarea,
+    button {
+      margin-bottom: 1rem;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
     }
+    button {
+      background-color: $primary-blue;
+      text-transform: capitalize;
+      color: $primary-white;
+      font-size: 0.9rem;
+    }
+    label {
+      color: $primary-white;
+      font-size: 0.9rem;
+      padding-bottom: 10px;
+    }
+  }
 }

@@ -37,6 +37,7 @@ function App() {
       setBalance(balance - data.amount);
       setExpenses([data, ...expenses]);
     }
+    console.log(data)
   };
   const handleThemeChange = () => {
     if (theme === "light") {
@@ -63,23 +64,16 @@ function App() {
           }
         />
       </Routes>
-      {/* <Navigation
+      <Navigation
         theme={theme}
         handleThemeChange={handleThemeChange}
-        showForm={showForm}
         setShowForm={setShowForm}
-      /> */}
-      {showForm ? (
-        <Form 
-          showForm={showForm} 
+      />
+      {showForm && (
+        <Form
           setShowForm={setShowForm}
-          addRecord={addRecord} />
-      ) : (
-        <Navigation
-          theme={theme}
-          handleThemeChange={handleThemeChange}
-          showForm={showForm}
-          setShowForm={setShowForm}
+          addRecord={addRecord}
+          categoriesData={categoriesData}
         />
       )}
     </div>
