@@ -13,6 +13,7 @@ import Form from "./components/Form";
 import Dashboard from "./components/Dashboard";
 import Navigation from "./components/Navigation";
 import UserSettings from "./components/UserSettings";
+import Transaction from "./components/Transaction";
 
 //importing hooks
 import { useState } from "react";
@@ -24,20 +25,18 @@ function App() {
   //state variables
   const [balance, setBalance] = useState(12000);
   const [showForm, setShowForm] = useState(false);
-  const [incomes, setIncomes] = useState([]);
-  const [expenses, setExpenses] = useState([]);
+  const [transactions, setTransactions] = useState([]);
   const [theme, setTheme] = useState("light");
   const currency = String.fromCharCode(8377);
 
   const addRecord = (data) => {
     if (data.recordType === "income") {
       setBalance(balance + data.amount);
-      setIncomes([data, ...incomes]);
     } else {
       setBalance(balance - data.amount);
-      setExpenses([data, ...expenses]);
     }
-    console.log(data)
+    setTransactions([data, ...transactions]);
+    console.log(transactions);
   };
   const handleThemeChange = () => {
     if (theme === "light") {
@@ -49,21 +48,6 @@ function App() {
 
   return (
     <div className="container">
-      <Routes>
-        <Route path="settings" element={<UserSettings theme={theme} />} />
-        <Route
-          path="/"
-          element={
-            <Dashboard
-              balance={balance}
-              currency={currency}
-              expenses={expenses}
-              incomes={incomes}
-              theme={theme}
-            />
-          }
-        />
-      </Routes>
       <Navigation
         theme={theme}
         handleThemeChange={handleThemeChange}
@@ -76,6 +60,20 @@ function App() {
           categoriesData={categoriesData}
         />
       )}
+      <Routes>
+        <Route path="settings" element={<UserSettings theme={theme} />} />
+        <Route path="transaction" element={<Transaction theme={theme} />} />
+        <Route
+          path="/"
+          element={
+            <Dashboard
+              balance={balance}
+              currency={currency}
+              theme={theme}
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 }
